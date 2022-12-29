@@ -1,0 +1,36 @@
+<%= form_with model: @job, local: true do |f| %>
+  <div class="forms">
+    <h1>求人を投稿する</h1>
+    <div class="form-shop-name">
+      <h2>店名</h2>
+      <%= f.text_field :shop_name, class:"form-shop-name" %>
+    </div>
+    <div class="form-occupation">
+      <h2>職種</h2>
+      <%= f.collection_select(:occupation_id, Occupation.all, :id, :name, {}, {class:"occupation-select"}) %>
+    </div>
+    <div class="form-salary">
+      <h2>時給金額</h2>
+      <%= f.text_field :salary, class:"form-salary", placeholder:"1000" %>
+    <div class="form-ticket">
+      <h2>リフト券貸し出し</h2>
+      <%= f.collection_select(:ticket_id, Ticket.all, :id, :name, {}, {class:"ticket-select"}) %>
+    </div>
+    <div>
+      <h2>寮</h2>
+      <%= f.collection_select(:domitory_id, Domitory.all, :id, :name, {}, {class:"domitory-select"}) %>
+    </div>
+    <div class="form-phone_mumber">
+      <h2>電話番号</h2>
+      <%= f.text_field :phone_number, class:"form-phone_number", placeholder:"半角数字を入力してください（ハイフンなし）" %>
+    </div>
+    <div class="form-text">
+      <h2>その他</h2>
+      <%= f.text_area :text, class:"form-text", placeholder:"希望条件を記入してください
+(例)週3日以上勤務、賄いあり　など" %>
+    </div>
+    <div class="form-post">
+      <%= f.submit "投稿する" ,class:"form-btn" %>
+    </div>
+  </div>
+<% end %>
