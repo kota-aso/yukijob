@@ -1,4 +1,8 @@
 class JobsController < ApplicationController
+
+  before_action :move_to_index, except: [:index, :show]
+
+
   def index
     @jobs = Job.order("created_at DESC")
   end
@@ -38,11 +42,17 @@ class JobsController < ApplicationController
     @job.destroy
     redirect_to root_path
   end
-  
+
   private
 
   def job_params
-    params.require(:job).permit(:shop_name, :occupation_id, :salary, :ticket_id, :domitory_id,:phone_number,:text)
+    params.require(:job).permit(:shop_name, :occupation_id, :salary, :ticket_id, :domitory_id,:phone_number,:text).merge(user_id: current_user.id)
+  end
+
+  def move_to_index
+    unless user_signed_in?
+      redirect_to action: :index
+    end
   end
 
 end

@@ -3,6 +3,7 @@ class Job < ApplicationRecord
   belongs_to :occupation
   belongs_to :domitory
   belongs_to :ticket
+  belongs_to :user
 
   validates :shop_name, :salary, :phone_number, :text, presence: true
 
