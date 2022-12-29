@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+ .header{
+  display: flex;
+  background-color: gray;
+  justify-content: space-between;
+ }
+
+ .job-post{
+  display: flex;
+  align-items: center;
+ }
