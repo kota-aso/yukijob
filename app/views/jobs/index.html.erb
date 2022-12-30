@@ -6,11 +6,13 @@
         <%= job.shop_name %>(<%=job.occupation.name %>)
       </div>
       <div class="salary">
-        時給/<%= job.salary %>円
+        <%= job.salary %>円/時給
       </div>
     </div>
     <div class="job-detail">
-      <%= link_to "詳細", job_path(job.id), method: :get %>
+      <div class="detail-btn">
+        <%= link_to "詳細", job_path(job.id), method: :get  %>
+      </div>
     </div>
   </div>
 <% end %>
