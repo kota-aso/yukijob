@@ -29,7 +29,7 @@
     </tr>
     <tr>
       <td class="table-left">電話番号</td>
-      <td class="table-right"><%= @job.phone_number%></td>
+      <td class="table-right"><%= @job.phone_number.gsub(/-/,"")%></td>
     </tr>
     <tr class="show-text">
       <td class="table-left">その他</td>
