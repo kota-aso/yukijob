@@ -1,15 +1,39 @@
-  <div class="job">
-    <div class="job-info">
-      <div class="shop-name">
-        <%= @job.shop_name %>(<%=@job.occupation.name %>)
+<div class="show-wrapper">
+  <h2 class="show-h2"><%= @job.shop_name %></h2>
+  <div class="edit-destroy">
+    <% if user_signed_in? && current_user.id == @job.user_id %>
+      <div class="show-edit-btn">
+        <%= link_to '編集', edit_job_path(@job.id), method: :get%>
       </div>
-      <div class="salary">
-        時給/<%= @job.salary %>円
+      <div class="show-destroy-btn">
+        <%= link_to '削除', job_path(@job.id), method: :delete%>
       </div>
-    </div>
+    <% end %>
   </div>
-    
-  <% if user_signed_in? && current_user.id == @job.user_id %>
-    <%= link_to '編集', edit_job_path(@job.id), method: :get%>
-    <%= link_to '削除', job_path(@job.id), method: :delete%>
-  <% end %>
+  <table border="1" style="border-collapse: collapse" class="show-detail">
+    <tr>
+      <td class="table-left">職種</td>
+      <td class="table-right"><%= @job.occupation.name%></td>
+    </tr>
+    <tr>
+      <td class="table-left">時給</td>
+      <td class="table-right"><%= @job.salary%></td>
+    </tr>
+    <tr>
+      <td class="table-left">リフト券貸し出し</td>
+      <td class="table-right"><%= @job.ticket.name%></td>
+    </tr>
+    <tr>
+      <td class="table-left">従業員寮</td>
+      <td class="table-right"><%= @job.domitory.name%></td>
+    </tr>
+    <tr>
+      <td class="table-left">電話番号</td>
+      <td class="table-right"><%= @job.phone_number%></td>
+    </tr>
+    <tr class="show-text">
+      <td class="table-left">その他</td>
+      <td class="table-right"><%= simple_format(@job.text.gsub(/\n/, "<br>"))%></td>
+    </tr>
+  </table>
+</div>
