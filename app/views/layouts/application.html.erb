@@ -17,19 +17,17 @@
       <h1 class="yukijob"><a href="/">YukiJob</a></h1>
       <% if user_signed_in? %>
         <div class="user_nav grid-6">
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-          <%= link_to "求人を投稿する", new_job_path, class:"job-post" %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "bar" %>
+          <%= link_to "求人を投稿する", new_job_path, class:"job-post bar" %>
         </div>
       <% else %>
         <div class="grid-6">
-          <%= link_to "ログイン", new_user_session_path, class: "post" %>
-          <%= link_to "新規登録", new_user_registration_path, class: "post" %>
+          <%= link_to "ログイン", new_user_session_path, class: "bar" %>
+          <%= link_to "新規登録", new_user_registration_path, class: "bar" %>
         </div>
       <% end %>
     </header>
     <%= yield %>
-    <footer>
-      <small>copyright</small>
-    </footer>
+
   </body>
 </html>
