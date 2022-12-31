@@ -56,3 +56,11 @@ tr{
 a{
 margin: 0 auto;
 }
+
+.table-left{
+  width: 30%;
+}
+
+.table-right{
+  width: 70px;
+}
