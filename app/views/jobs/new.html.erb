@@ -1,5 +1,5 @@
 <%= form_with model: @job, local: true do |f| %>
-  <div class="error-message>
+  <div class="error-message forms">
     <%= render 'layouts/error_messages', model: @job %>
   </div>
   <div class="forms">
@@ -21,7 +21,7 @@
       <%= f.collection_select(:ticket_id, Ticket.all, :id, :name, {}, {class:"ticket-select"}) %>
     </div>
     <div>
-      <h2>寮</h2>
+      <h2>従業員寮</h2>
       <%= f.collection_select(:domitory_id, Domitory.all, :id, :name, {}, {class:"domitory-select"}) %>
     </div>
     <div class="form-phone_mumber">
