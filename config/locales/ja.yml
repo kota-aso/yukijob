@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: 名前
+      job:
+        shop_name: 店名/場所名
+        salary: 時給金額
+        phone_number: 電話番号
+        text: その他
+        occupation_id: 職種
+        domitory_id: 従業員寮
+        ticket_id: リフト券貸し出し
